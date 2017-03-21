@@ -25,8 +25,8 @@ class Execution(models.Model):
 
 
 class Result(models.Model):
-    text_hash = models.CharField(max_length=32, min_length=32)
-    from_twitter_status_id = models.CharField()
+    text_hash = models.CharField(max_length=32)
+    from_twitter_status_id = models.CharField(max_length=64)
     useful = models.BooleanField(default=False)
     execution = models.ForeignKey(Execution, on_delete=models.CASCADE)
     #source = models.ForeignKey(Source, on_delete=models.PROTECT)

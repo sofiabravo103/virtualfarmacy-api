@@ -32,7 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'queries.apps.QueriesConfig',
+    'faker',
     'taggit',
+    'taggit_serializer',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',

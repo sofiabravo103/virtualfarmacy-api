@@ -12,7 +12,7 @@ def query_list(request):
     if request.method == 'GET':
         queries = Query.objects.all()
         serializer = QuerySerializer(queries, many=True)
-        return Response(serializer.data, safe=False)
+        return Response(serializer.data)
 
     elif request.method == 'POST':
         serializer = QuerySerializer(data=request.data)

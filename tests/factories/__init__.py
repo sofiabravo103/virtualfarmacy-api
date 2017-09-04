@@ -26,5 +26,18 @@ class QueryFactory(factory.django.DjangoModelFactory):
     # author = factory.SubFactory(AuthorFactory)
 
     intention = random.choice(Query.INTENTION_CHOICES)
-    keywords = random_keyword_list()
     intersect_keywords = random.choice([True, False])
+    keywords = random_keyword_list()
+
+    # This is a fixture needed by django-taggit-serializer:
+    # http://factoryboy.readthedocs.io/en/latest/recipes.html#simple-many-to-many-relationship
+    @factory.post_generation
+    def keywords(self, create, extracted, **kwargs):
+        if not create:
+            # Simple build, do nothing.
+            return
+
+        if extracted:
+            # A list of tags were passed in, use them.
+            for tag in extracted:
+                self.keywords.add(tag)

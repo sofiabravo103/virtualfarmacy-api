@@ -20,4 +20,5 @@ Replace username, password and db_name with your postgres info, generate a secre
 ### Tests
 
 To run all tests use pytest:
+
 `$ pytest`

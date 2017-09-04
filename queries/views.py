@@ -5,7 +5,7 @@ from queries.serializers import QuerySerializer
 
 # Create your views here.
 @api_view(['GET', 'POST'])
-def query_list(request):
+def query_list(request, format=None):
     """
     List all code queries, or create a new query.
     """
@@ -22,7 +22,7 @@ def query_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'POST', 'DELETE'])
-def query_detail(request, pk):
+def query_detail(request, pk, format=None):
     """
     Retrieve, update or delete a query.
     """

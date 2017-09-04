@@ -14,9 +14,6 @@ class QueryListTests(APITestCase):
 
         url = reverse('queries-list')
         data = {
-            # This could be generated with a stub factory,
-            # but if a stub is created the factory won't properly
-            # create the tags, so the data is created without factory
             'intention': random.choice(Query.INTENTION_CHOICES),
             'intersect_keywords': random.choice([True, False]),
             'keywords': random_keyword_list()

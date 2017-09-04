@@ -5,14 +5,15 @@ from taggit.managers import TaggableManager
 class Query(models.Model):
     OFFER = 'OF'
     REQUEST = 'RE'
-    INTENTION_CHOICES = (
+    INTENTION_CHOICES = [OFFER, REQUEST]
+    INTENTION_CHOICES_NAMED = (
         (OFFER, 'Offer'),
         (REQUEST, 'Request')
     )
     created = models.DateTimeField(auto_now_add=True)
     intention = models.CharField(
         max_length=2,
-        choices=INTENTION_CHOICES
+        choices=INTENTION_CHOICES_NAMED
     )
     intersect_keywords = models.BooleanField(default=True)
     keywords = TaggableManager()

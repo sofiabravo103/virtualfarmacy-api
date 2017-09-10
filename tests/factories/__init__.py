@@ -8,13 +8,13 @@ from queries.models import Query
 # faker = FakerFactory.create()
 
 
-def random_keyword_list():
+def random_keyword_set():
 
     def random_word():
         return ''.join(random.choices(string.ascii_letters, \
             k=random.choice(range(1,10))))
 
-    return [random_word() for _ in range(random.choice(range(1,12)))]
+    return { random_word() for _ in range(random.choice(range(1,12)))}
 
 class QueryFactory(factory.django.DjangoModelFactory):
     """Query factory."""
@@ -27,7 +27,9 @@ class QueryFactory(factory.django.DjangoModelFactory):
 
     intention = random.choice(Query.INTENTION_CHOICES)
     intersect_keywords = random.choice([True, False])
-    keywords = random_keyword_list()
+    keywords = random_keyword_set()
+    public = random.choice([True, False])
+
 
     # This is a fixture needed by django-taggit-serializer:
     # http://factoryboy.readthedocs.io/en/latest/recipes.html#simple-many-to-many-relationship

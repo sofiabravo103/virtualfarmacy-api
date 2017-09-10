@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework import mixins
 from taggit.managers import TaggableManager
 
 
@@ -16,6 +17,7 @@ class Query(models.Model):
         choices=INTENTION_CHOICES_NAMED
     )
     intersect_keywords = models.BooleanField(default=True)
+    public = models.BooleanField(default=True)
     keywords = TaggableManager()
 
 

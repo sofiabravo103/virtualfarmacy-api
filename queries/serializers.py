@@ -10,4 +10,5 @@ class QuerySerializer(TaggitSerializer,serializers.ModelSerializer):
 
     class Meta:
         model = Query
-        fields = ('created', 'intention', 'intersect_keywords', 'keywords')
+        fields = ('created', 'intention', 'intersect_keywords', 'keywords', \
+            'public')

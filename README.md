@@ -6,6 +6,7 @@ API to query classified Venezuelan prescription drug tweets
 ### Dependencies
 
 Install requirements with pip: 
+
 `$pip install -r requirements.txt`
 
 ### Environ
